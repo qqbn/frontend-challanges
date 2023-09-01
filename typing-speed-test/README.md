@@ -1,0 +1,1 @@
+# Inspirtaion: https://sadanandpai.github.io/frontend-mini-challenges/native/machine-coding/typing-speed-test/ :sunglasses:

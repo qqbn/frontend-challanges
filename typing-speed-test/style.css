@@ -1,0 +1,84 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0 auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    font-size: 22px;
+    margin: 20px 0;
+}
+
+p{
+    font-size: 16px;
+    margin: 0 0 20px 0;
+}
+
+.text-display{
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid rgb(209, 208, 208);
+    width: 30%;
+    margin-bottom: 20px;
+    font-size: 22px;
+    text-align: left;
+    vertical-align: middle;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.text-display::first-letter{
+    color: red;
+}
+
+.keyboard{
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.row{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.key{
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#retry{
+    margin-top: 20px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgba(243, 71, 71, 0.774);
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
