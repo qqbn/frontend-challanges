@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0 auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.box{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.game-wrapper{
+    width: 500px;
+    height: 500px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+.game{
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 20px;
+}
+
+.game-fake{
+    position: absolute;
+}
+
+.game-box{
+    background-color: rgb(2, 224, 224);
+    border-radius: 8px;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 29px 36px -27px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 29px 36px -27px rgba(66, 68, 90, 1);
+    box-shadow: 0px 29px 36px -27px rgba(66, 68, 90, 1);
+    transition: 0.6s transform;
+    backface-visibility: hidden;
+}
+.game-box-real{
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.rotate{
+    transform: rotateY(180deg);
+}
+.rotate2{
+    transform: rotateY(360deg);
+}
+
+.restart{
+    font-size: 18px;
+    padding: 20px 20px;
+    text-align: center;
+    vertical-align: center;
+    border-radius: 8px;
+    background-color: rgb(236, 59, 59);
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.matching{
+    background-color: rgb(0, 138, 138);
+}
