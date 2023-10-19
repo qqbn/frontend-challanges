@@ -1,0 +1,1 @@
+# Inspirtaion: https://sadanandpai.github.io/frontend-mini-challenges/native/machine-coding/star-rating-display/ :sunglasses:
