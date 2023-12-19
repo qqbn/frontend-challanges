@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0 auto;
+}
+
+.box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    padding: 20px;
+}
+
+h2{
+    padding: 10px;
+}
+
+input{
+    min-width: 300px;
+    padding: 20px;
+    font-size: 18px;
+    height: 28px;
+    color: black;
+    width: 60%;
+    border-radius: 8px;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+}
+
+.chip{
+    width: auto;
+    padding: 5px 20px;
+    border-radius: 30px;
+    background-color: beige;
+    color: black;
+}
+
+.chip span{
+    color: red;
+    cursor: pointer;
+}
