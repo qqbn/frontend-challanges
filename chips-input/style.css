@@ -55,4 +55,5 @@ input{
 .chip span{
     color: red;
     cursor: pointer;
+    margin-left: 10px;
 }
