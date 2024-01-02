@@ -1,0 +1,1 @@
+# Inspiration: https://sadanandpai.github.io/frontend-mini-challenges/javascript/src/challenges/blobmaker/ :sunglasses:

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Blob maker</title>
+</head>
+<body>
+    <div class="box">
+        <div class="blob-box">
+            <div class="blob"></div>
+        </div>
+
+        <div class="inputs">
+            <div class="left-box">
+                <div>
+                    <label for="height-input">Height</label>
+                    <input type="number" name="height-input" min="0" value="200" id="height">
+                </div>
+
+                <input type="range" min="0" max="100" id="left-top" value="50" step="1">
+                <input type="range" min="0" max="100" id="left-bottom" value="50" step="1">
+            </div>
+            <div class="right-box">
+                <div>
+                    <label for="width-input">Width</label>
+                    <input type="number" name="width-input" min="0" value="200" id="width">
+                </div>
+
+                <input type="range" min="0" max="100" id="right-top" value="50" step="1">
+                <input type="range" min="0" max="100" id="right-bottom" value="50" step="1">
+            </div>
+        </div>
+
+        <div class="styles">
+            <pre class="code">123123</pre>
+            <button class="copy">copy</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
