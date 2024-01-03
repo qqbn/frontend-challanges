@@ -31,7 +31,7 @@ body{
     width: 200px;
     background-color: aquamarine;
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-    border-radius: 50% 50% 0 0 /0 0 50% 50%;
+    border-radius: 50%;
 }
 
 .inputs{
@@ -60,7 +60,6 @@ input[type=range]{
 .styles{
     width: 600px;
     height: auto;
-    border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,4 +79,6 @@ pre{
     background-color: rgb(79, 170, 140);
     border: none;
     border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
 }
