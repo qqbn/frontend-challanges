@@ -1,0 +1,1 @@
+# Inspirtaion: https://sadanandpai.github.io/frontend-mini-challenges/javascript/src/challenges/gradient-generator/ :sunglasses:
