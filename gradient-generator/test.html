@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #target {
+      width: 100px;
+      height: 100px;
+      background-color: #3498db;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="target" onclick="sprawdzPozycje(event)"></div>
+
+  <script>
+    function sprawdzPozycje(event) {
+      var target = event.target;
+
+      // Pozycja względem lewego górnego rogu okna przeglądarki
+      var pozycjaX = event.clientX;
+      var pozycjaY = event.clientY;
+
+      // Pozycja względem lewego górnego rogu elementu target
+      var pozycjaElementuX = pozycjaX - target.getBoundingClientRect().left;
+      var pozycjaElementuY = pozycjaY - target.getBoundingClientRect().top;
+
+      console.clear();
+      console.log('Pozycja względem okna przeglądarki:');
+      console.log('X:', pozycjaX);
+      console.log('Y:', pozycjaY);
+
+      console.log('Pozycja względem elementu:');
+      console.log('X:', pozycjaElementuX);
+      console.log('Y:', pozycjaElementuY);
+    }
+  </script>
+</body>
+</html>

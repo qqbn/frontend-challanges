@@ -11,6 +11,7 @@ const inputs = [leftColorInput, rightColorInput];
 const gradients = [gradient, gradientSpan];
 const leftRangeColor=document.querySelector('#gradient-left-range-color');
 const rightRangeColor=document.querySelector('#gradient-right-range-color');
+let currentButton;
 
 let leftColorVal=leftColorInput.value;
 let rightColorVal=rightColorInput.value;
@@ -23,45 +24,39 @@ let isDraggin=false;
 
 
 ranges.forEach(elem=>{
-    elem.addEventListener('click', (e)=>{
-        active=Number(elem.getAttribute('data-id'));
-        const found = [...ranges].find(el => el.classList.contains('active'));
-        
-        positionInput.value='';
-        if(active){
-            positionInput.value=rightPositionVal;
-        }else{
-            positionInput.value=leftPositionVal;
-        }
-
-        if(!found){
-            elem.classList.add('active');
-        }else{
-            found.classList.remove('active');
-            elem.classList.add('active');
-        }
-    })
-
     elem.addEventListener('mousedown', (e) =>{
+        setActiveButton(elem);
         isDraggin=true;
-    })
-
-    elem.addEventListener('mouseup', (e) =>{
-        isDraggin=false;
-    })
-
-    elem.addEventListener('mousemove', (e) =>{
-        if(isDraggin){
-            const eventPosition = e.target.getBoundingClientRect();
-            const parent = e.target.parentNode;
-            const parentPosition = parent.getBoundingClientRect();
-            const fixed = Math.round(Math.abs(e.clientX - parentPosition.right));
-            console.log(fixed);
-            console.log(fixed/200 * 100);
-            // e.target.style.position.right
-        }
+        currentButton=e.currentTarget;
     })
 })
+
+window.addEventListener('mouseup', (e) =>{
+    if(isDraggin){
+        isDraggin=false;
+    }
+})
+
+window.addEventListener('mousemove', (e) =>{
+    if(isDraggin){
+        const parentPosition = gradientSpan.getBoundingClientRect(); 
+        if(e.clientX<parentPosition.left){
+            currentButton.style.transform=`translateX(${0}px)`
+            calculatePosition(0, 1)
+        }else if(e.clientX>parentPosition.right-parentPosition.left){
+            currentButton.style.transform=`translateX(${parentPosition.right-parentPosition.left-30}px)`
+            calculatePosition(parentPosition.right-parentPosition.left, gradientSpan.clientWidth)
+        }else{
+            currentButton.style.transform=`translateX(${e.clientX-parentPosition.left}px)`;
+            calculatePosition(e.clientX-parentPosition.left, gradientSpan.clientWidth)
+        }
+    }
+
+})
+
+const calculatePosition = (position, width) => {
+    console.log(Math.ceil((position/width)*100));
+}
 
 inputs.forEach(elem=>{
     elem.addEventListener('blur', (e)=>{
@@ -100,6 +95,24 @@ copy.addEventListener('click', (e)=>{
     alert('Copied to clipboard: ' + gradientStyle)
 })
 
+const setActiveButton = (elem) =>{
+    active=Number(elem.getAttribute('data-id'));
+    const found = [...ranges].find(el => el.classList.contains('active'));
+    
+    positionInput.value='';
+    if(active){
+        positionInput.value=rightPositionVal;
+    }else{
+        positionInput.value=leftPositionVal;
+    }
+
+    if(!found){
+        elem.classList.add('active');
+    }else{
+        found.classList.remove('active');
+        elem.classList.add('active');
+    }
+}
 
 const createBackground = () => {
     gradientStyle = `linear-gradient(${rotationVal}deg, ${leftColorVal} ${leftPositionVal}, ${rightColorVal} ${rightPositionVal})`
@@ -138,4 +151,10 @@ const getRandomColor = () =>{
     return '#' + Math.floor(Math.random()*16777215).toString(16);
 }
 
+const setButtons = () =>{
+    leftRangeColor.parentNode.style.transform='translateX(0px)';
+    rightRangeColor.parentNode.style.transform=`translateX(${gradientSpan.getBoundingClientRect().right-gradientSpan.getBoundingClientRect().left-30}px)`;
+}
+
 createRandomGradient();
+setButtons();
