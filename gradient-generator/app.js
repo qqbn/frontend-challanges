@@ -40,22 +40,32 @@ window.addEventListener('mouseup', (e) =>{
 window.addEventListener('mousemove', (e) =>{
     if(isDraggin){
         const parentPosition = gradientSpan.getBoundingClientRect(); 
-        if(e.clientX<parentPosition.left){
-            currentButton.style.transform=`translateX(${0}px)`
+        if(e.clientX-20<parentPosition.left){
+            currentButton.style.transform=`translateX(0px)`
             calculatePosition(0, 1)
         }else if(e.clientX>parentPosition.right-parentPosition.left){
             currentButton.style.transform=`translateX(${parentPosition.right-parentPosition.left-30}px)`
             calculatePosition(parentPosition.right-parentPosition.left, gradientSpan.clientWidth)
         }else{
-            currentButton.style.transform=`translateX(${e.clientX-parentPosition.left}px)`;
-            calculatePosition(e.clientX-parentPosition.left, gradientSpan.clientWidth)
+            currentButton.style.transform=`translateX(${e.clientX-parentPosition.left-15}px)`;
+            calculatePosition(e.clientX-parentPosition.left-15, gradientSpan.clientWidth)
         }
     }
 
 })
 
 const calculatePosition = (position, width) => {
-    console.log(Math.ceil((position/width)*100));
+    const postionPercentage = Math.ceil((position/width)*100)+'%';
+
+    if(active){
+        rightPositionVal = postionPercentage;
+        positionInput.value = rightPositionVal
+    }else{
+        leftPositionVal = postionPercentage;
+        positionInput.value = leftPositionVal
+    }
+
+    createBackground();
 }
 
 inputs.forEach(elem=>{
